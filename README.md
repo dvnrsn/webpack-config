@@ -7,7 +7,6 @@ A reference for configuring webpack from scratch
 Basically 
 ```js
 webpack --env.NODE_ENV=local --env.production
-...
 // webpack.config.js
 console.log('NODE_ENV: ', env.NODE_ENV); // 'local'
 console.log('Production: ', env.production) true
@@ -24,3 +23,28 @@ module.exports={
   mode: env.dev || isDevServer ? 'development' : 'production',
 }
 ```
+
+## HTML file
+Configure webpack to inject the path to our JS bundle directly into HTML
+
+[HTML Webpack Plugin](https://github.com/jantimon/html-webpack-plugin)
+
+Generates a dist/index.html with a script src pointing to ouptut JS
+
+```js
+plugins: [
+  new HtmlWebpackPlugin({
+    template:'./src/template.html'
+  })
+],
+  ```
+
+## Cache Busting
+use a unique file version identifier to tell the browser that a new version of the file is available
+
+## Clean build folder
+[Clean Webpack Plugin](https://github.com/johnagan/clean-webpack-plugin)
+```js
+plugins: [
+  new CleanWebpackPlugin()
+]
