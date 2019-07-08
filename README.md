@@ -32,6 +32,8 @@ Configure webpack to inject the path to our JS bundle directly into HTML
 Generates a dist/index.html with a script src pointing to ouptut JS
 
 ```js
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
 plugins: [
   new HtmlWebpackPlugin({
     template:'./src/template.html'
